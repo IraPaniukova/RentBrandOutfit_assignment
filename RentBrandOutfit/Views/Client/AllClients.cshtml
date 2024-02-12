@@ -1,0 +1,32 @@
+﻿@model IEnumerable<RentBrandOutfit.Models.ClientDetailed>
+<!--Ira, 24/10/23, 16/10/23-->
+
+<div class="row ">
+    <h2 class="col-md-11">All Clients</h2>
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+
+<hr />
+<br />
+
+<table class="table">
+    <th> Client ID </th>
+    <th> Client Name </th>
+    <th> Client E-mail </th>
+    <th> Client Address </th>
+    <th> Client Phone </th>
+    <th> Client Location </th>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ClientID </td>
+            <td>@item.ClientName</td>
+            <td>@item.ClientEmail</td>
+            <td>@item.ClientAddress</td>
+            <td>@item.ClientPhone</td>
+            <td>@item.LocationDescription</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CategoryRented>
+
+<!--Ira, 31/10/23-->
+
+<div class="row ">
+    <h2 class="col-md-11">Total Rent Per Category</h2>
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+
+<hr />
+<br />
+
+<table class="table">
+    <th> Category </th>
+    <th> Total Rent </th>
+
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CategoryName </td>
+            <td>@item.TotalPerCategory</td>
+
+        </tr>
+    }
+</table>

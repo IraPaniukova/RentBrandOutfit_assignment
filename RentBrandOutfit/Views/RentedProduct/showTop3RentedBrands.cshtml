@@ -1,0 +1,37 @@
+﻿@model IEnumerable<RentBrandOutfit.Models.BrandandTotalPrice>
+
+
+
+<!--Ayako, 22/10/23-->
+
+<div class="row ">
+    <h2 class="col-md-11">Top3 Rented Brand Overall</h2>
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+
+<hr />
+<br />
+
+<br />
+
+<br />
+@if (Model != null)
+{
+
+    <br />
+    <table class="table">
+        <th> Brand Name </th>
+        <th> Total Price </th>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.BrandName </td>
+                <td>$@item.TotalPrice</td>
+
+            </tr>
+        }
+    </table>
+}

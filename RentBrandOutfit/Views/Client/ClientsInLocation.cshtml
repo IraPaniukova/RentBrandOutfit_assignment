@@ -1,0 +1,57 @@
+﻿@model RentBrandOutfit.Models.ClientLocation   
+<!--Ira, 12/10/23, 16/10/23-->
+
+<div class="row ">
+    <h2 class="col-md-11">Select all clients from one location</h2>   
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div> 
+ </div>
+
+<hr />
+<br />
+<form >
+    <div class="row ">
+        <div class="col-md-2 form-floating ">
+            <label for="Location" class="fw-bold">Choose the location</label>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group flex-nowrap">             
+                <select name="selectedItem" id="selectedItem">
+                    <option  value=" " selected> </option>
+                    @foreach (var item in Model.Locations)
+                    {
+                        <option value="@item.LocationDescription">@item.LocationDescription</option>
+                    }
+                </select>
+                                <input class="btn btn-outline-dark" type="submit" value="Enter">
+            </div>
+        </div>
+
+    </div>
+</form>
+<br />
+<hr />
+<br />
+@if (ViewBag.Location != null)
+{
+    <h3> Clients who live in @ViewBag.Location:</h3>
+}
+<br />
+<table class="table">
+    <th> Client ID </th>
+    <th> Client Name </th>
+    <th> Client E-mail </th>
+    <th> Client Address </th>
+    <th> Client Phone </th>
+    @foreach (var item in Model.Clients)
+    {
+        <tr>
+            <td>@item.ClientID </td>
+            <td>@item.ClientName</td>
+            <td>@item.ClientEmail</td>
+            <td>@item.ClientAddress</td>
+            <td>@item.ClientPhone</td>
+        </tr>
+    }
+</table>

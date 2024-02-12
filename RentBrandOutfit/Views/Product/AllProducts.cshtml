@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Product>
+<!--Ira, 24/10/23, 16/10/23-->
+
+<div class="row ">
+    <h2 class="col-md-11">All Products</h2>
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+
+<hr />
+<br />
+
+<table class="table">
+    <th> Product ID </th>
+    <th> Product Name </th>
+    <th> Product Material </th>
+    <th> Product Colour </th>
+    <th> Product Quantity </th>
+    <th> Product Image </th>
+    <th> Product Price </th>
+    <th> Product Category </th>
+    <th> Product Brand </th>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ProductId </td>
+            <td>@item.ProductName</td>
+            <td>@item.ProductMaterial</td>
+            <td>@item.ProductColour</td>
+            <td>@item.ProductQty</td>
+            <td><img src="@Url.Content(item.ProductImg)" alt="Shoe Image" width="120em"></td>
+            <td>@item.ProductPrice</td>
+            <td>@item.Category.CategoryName</td>
+            <td>@item.Brand.BrandName</td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,70 @@
+﻿@model ProductDetailed
+
+<!--Ira  24/10/2023-->
+<div class="row ">
+    <h2 class="col-md-11">Search Product By ID</h2>
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+
+<hr />
+<br />
+<form Method="post" action="/Product/ProductSearchByID">
+
+    <div class="row ">
+        <div class="col-md-2 form-floating ">
+            <label for="id" class="fw-bold">Enter ID</label>
+        </div>
+        <br /><br />
+        <div class="col-md-7">
+            <div class="input-group flex-nowrap">
+                <input type="number" name="id" id="id" />
+                <input class="btn btn-outline-dark" type="submit" value="Enter">
+            </div>
+        </div>
+        <br /><br />
+        @if (Model != null)
+        {
+            <div class="col-md-3"><img src="@Url.Content(Model.ProductImg)" alt="Shoe Image" width="70%"></div>
+        }
+        
+    </div>
+</form>
+<br />
+<hr />
+<br />
+@if (Model != null)
+{
+    <h3> Product Information:</h3>
+
+    <br />
+    <table class="table">
+        <th> Product ID </th>
+        <th> Product Name </th>
+        <th> Product Material </th>
+        <th> Product Colour </th>
+        <th> Product Quantity </th>
+        
+        <th> Product Price </th>
+        <th> Product Category </th>
+        <th> Product Brand </th>
+        <tr>
+            <td>@Model.ProductID </td>
+            <td>@Model.ProductName</td>
+            <td>@Model.ProductMaterial</td>
+            <td>@Model.ProductColour</td>
+            <td>@Model.ProductQty</td>
+            
+            <td>@Model.ProductPrice</td>
+            <td>@Model.CategoryName</td>
+            <td>@Model.BrandName</td>
+        </tr>
+
+    </table>
+
+}
+else
+{
+    <p>Enter a proper ID</p>
+}

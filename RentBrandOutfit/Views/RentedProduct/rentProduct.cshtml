@@ -1,0 +1,175 @@
+﻿<!-----------Ayako 31/10/2023------------->
+@model RentBrandOutfit.Models.RentResponce
+
+<!--Ayako Edited 21/10/2023-->
+
+
+
+<div class="row ">
+    <h2 class="col-md-11">Rent Product</h2>
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+
+<hr />
+<br />
+
+<div id="here"></div>
+<form Method="post" action="/RentedProduct/rentProduct">
+
+    <div class="row ">
+        <div class="col-md-2 form-floating ">
+            <label for="rentStart">Rent Start Date:</label>
+           
+        </div>
+        <div class="col-md-4">
+            <div class="input-group flex-nowrap">
+                <input type="date" class="form-control" id="rentStart" name="rentStart" required>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <div class="row ">
+        <div class="col-md-2 form-floating ">
+            <label for="rentEnd">Rent End Date:</label>
+
+        </div>
+        <div class="col-md-4">
+            <div class="input-group flex-nowrap">
+                <input type="date" class="form-control" id="rentStart" name="rentEnd" required>
+            </div>
+        </div>
+
+    </div>
+ 
+
+
+    <div class="row ">
+        <div class="col-md-2 form-floating ">
+            <label for="QTY">Enter qualtities:</label>
+
+        </div>
+        <div class="col-md-4">
+            <div class="input-group flex-nowrap">
+                <input type="number" class="form-control" id="QTY" name="QTY" required min="1">
+            </div>
+        </div>
+        </div>
+
+
+        <div class="row ">
+            <div class="col-md-2 form-floating ">
+                <label for="clientID">Enter Client ID:</label>
+
+            </div>
+            <div class="col-md-4">
+                <div class="input-group flex-nowrap">
+                    <input type="number" class="form-control" id="clientID" name="clientID" required min="1">
+                </div>
+            </div>
+            </div>
+
+            <div class="row ">
+                <div class="col-md-2 form-floating ">
+                    <label for="productID">Enter Product ID:</label>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group flex-nowrap">
+                        <input type="number" class="form-control" id="productID" name="productID" required min="1">
+                    </div>
+                </div>
+
+    </div>
+
+            <div class="row ">
+                <div class="col-md-2 form-floating ">
+                    <label for="empID">Enter Employee ID:</label>
+
+                </div>
+                <div class="col-md-4">
+                    <div class="input-group flex-nowrap">
+                        <input type="number" class="form-control" id="empID" name="empID" required min="1">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row ">
+
+                <div class="col-md-8">
+
+
+                </div>
+
+            <div class="col-md-4">
+               
+                   
+                    <input class="btn btn-outline-dark" type="submit" value="submit">
+               
+            </div>
+            
+            </div>
+</form>
+<br />
+<hr />
+<br />
+
+
+@if (Model != null)
+{
+    <div id="result">
+    <h3> Rental Details:</h3>
+
+    <br />
+    <table class="table">
+        <th>Client Name</th>
+        <th>Client ID</th>
+        <th> Rent start date </th>
+        <th> Rent end date </th>
+        <th> Product ID </th>
+        <th> Product Name </th>
+        <th> Product Image </th>
+            <th> Product Price </th>
+            <th> Product QTY </th>
+        <th>Total days renting</th>
+        <th>Total price</th>
+
+
+        <tr>
+            <td>@Model.ClientName </td>
+            <td>@Model.ClientID</td>
+            <td>@Model.RentStartDate.ToString("yyyy-MM-dd")</td>
+            <td>@Model.RentEndDate.ToString("yyyy-MM-dd")</td>
+            <td>@Model.ProductID</td>
+            <td>@Model.ProductName</td>
+            <td><img src="@Url.Content(Model.ProductImg)" alt="Product Image" width="30%"></td>
+                <td>@Model.price</td>
+                <td>@Model.QTY</td>
+            <td>@Model.days</td>
+            <td>@Model.total</td>
+        </tr>
+
+    </table>
+    </div>
+
+
+}
+else
+{
+    <p>@ViewBag.Er</p>
+
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script><!--https://www.w3schools.com/jquery/jquery_get_started.asp-->
+<script>
+    $(document).ready(function () {
+        var content = $("#result").html();
+        $("#here").html(content);
+        $("#result").hide();
+    });
+</script>

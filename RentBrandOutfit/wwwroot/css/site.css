@@ -1,0 +1,40 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    /*------*Style options Ira, 11.10.23 ------------*/
+    background-color: #eee3fa;
+    font-family: "Nobile";
+}
+
+.ForNav {
+    background-color: #eee3fa;
+    font-family: "Nobile";
+    text-transform: uppercase;
+}
+
+/*----------------------------------------*/
+
+/*------*Style options Ira, 16.10.23 ------------*/
+
+a {
+    color: #9358d3;
+}
+.btn-outline-dark:hover {
+    background-color: #3e2855;
+}
+
+/*----------------------------------------*/

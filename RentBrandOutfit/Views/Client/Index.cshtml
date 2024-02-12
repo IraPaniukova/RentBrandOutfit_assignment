@@ -1,0 +1,35 @@
+﻿<!--Ira, 14/10/23, 16/10/23-->
+
+<h2 class="text-uppercase">Manage clients</h2>
+<br />
+<hr />
+<br />
+<h3>Show all clients</h3> <!--Ira, 24/10/23-->
+<br />
+<form method="get" action="@Url.Action("AllClients", "Client")">
+    <div class="d-grid col-5 justify-content-beginning">
+        <input class="btn btn-outline-dark" type="submit" value="Go to the page">
+    </div>
+</form>
+<br />
+<hr />
+<h3>Select all clients from one location</h3>
+<br>
+<form method="post" action="@Url.Action("ClientsInLocation", "Client")">
+    <div class="d-grid col-5 justify-content-beginning">
+        <input class="btn btn-outline-dark" type="submit" value="Go to the page">
+    </div>
+</form>
+<br />
+<hr />
+<br />
+<h3>Search a client by ID</h3>
+<br />
+<form method="get" action="@Url.Action("ClientSearchByID", "Client")">
+    <div class="d-grid col-5 justify-content-beginning">
+        <input class="btn btn-outline-dark" type="submit" value="Go to the page">
+    </div>
+</form>
+<br />
+<hr />
+<!--Ira, end of code----- -->

@@ -1,0 +1,58 @@
+﻿@model RentBrandOutfit.Models.ClientDetailed
+
+<!--Ayako Edited 21/10/2023-->
+<div class="row ">
+    <h2 class="col-md-11">Search Client By ID</h2>
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+
+<hr />
+<br />
+<form Method="post" action="/Client/ClientSearchByID">
+    
+    <div class="row ">
+        <div class="col-md-2 form-floating ">
+            <label for="id" class="fw-bold">Enter ID</label>
+        </div>
+        <div class="col-md-4">
+            <div class="input-group flex-nowrap">
+                <input type="number" name="id" id="id" />
+                <input class="btn btn-outline-dark" type="submit" value="Enter">
+            </div>
+        </div>
+
+    </div>
+</form>
+<br />
+<hr />
+<br />
+@if (Model != null)
+{
+    <h3> Client Information:</h3>
+
+    <br />
+    <table class="table">
+        <th> Client ID </th>
+        <th> Client Name </th>
+        <th> Client E-mail </th>
+        <th> Client Address </th>
+        <th> Client Phone </th>
+
+
+        <tr>
+            <td>@Model.ClientID </td>
+            <td>@Model.ClientName</td>
+            <td>@Model.ClientEmail</td>
+            <td>@Model.ClientAddress</td>
+            <td>@Model.ClientPhone</td>
+        </tr>
+
+    </table>
+}
+else
+{
+    <p>@ViewBag.Error</p>
+    
+}

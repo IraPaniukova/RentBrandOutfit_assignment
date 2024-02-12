@@ -1,0 +1,39 @@
+﻿@model IEnumerable<RentedProductDetailed>
+<!--Ira, 02/11/23-->
+
+<div class="row ">
+    <h2 class="col-md-11">All Currently Rented Products</h2>
+    <div class="col-md-1 justify-content-end">
+        <a asp-action="Index">Back</a>
+    </div>
+</div>
+
+<hr />
+<br />
+
+<table class="table">
+    <th> Rent ID </th>
+    <th> Rent Start Date </th>
+    <th> Rent End Date </th>
+    <th> Quantity </th>
+    <th> Rent Total Price </th>
+    <th> Image </th>
+    <th> Product Name </th>
+    <th> Client Name </th>
+    <th> Employee Name </th>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.RentID </td>
+            <td>@item.RentStartDate.ToString("dd-MM-yyyy")</td>
+            <td>@item.RentEndDate.ToString("dd-MM-yyyy")</td>
+            <td>@item.RentQuantity</td>
+            <td>@item.RentTotalPrice</td>
+            <td><img src="@Url.Content(item.ProductImg)" alt="Shoe Image" width="120em"></td>
+            <td>@item.ProductName</td>
+            <td>@item.ClientName</td>
+            <td>@item.EmployeeName</td>
+        </tr>
+    }
+</table>

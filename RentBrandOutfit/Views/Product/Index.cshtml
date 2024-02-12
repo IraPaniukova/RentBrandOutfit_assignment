@@ -1,0 +1,32 @@
+﻿<!--Ayako, code for the button, 22/10/23-->
+@if (User.IsInRole("Administrator") || User.IsInRole("Manager"))  //  <!-- Ira, 4/11/23 - The item is hidden for not admin or manager-->
+{
+    <h2 class="text-uppercase">Manage products</h2>
+<br />
+<hr />  }
+<br />
+<h3>Show all products</h3> <!--Ira, 24/10/23-->
+<br>
+<form method="get" action="@Url.Action("AllProducts", "Product")">
+    <div class="d-grid col-5 justify-content-beginning">
+        <input class="btn btn-outline-dark" type="submit" value="Go to the page">
+    </div>
+</form>
+<br />
+<hr />
+<br />
+@if (User.IsInRole("Administrator") || User.IsInRole("Manager"))  //  <!-- Ira, 4/11/23 - The item is hidden for not admin or manager-->
+
+    {
+
+    <h3>Search product by ID </h3> <!--Ira, 24/10/23-->
+    <br>
+    <form method="get" action="@Url.Action("ProductSearchById", "Product")">
+        <div class="d-grid col-5 justify-content-beginning">
+            <input class="btn btn-outline-dark" type="submit" value="Go to the page">
+        </div>
+    </form>
+    <br />
+    <hr />
+    <br />
+    }
